@@ -1455,7 +1455,7 @@ MIT © 2024\`;
         }
 
         function generateWeatherApp(query) {
-            return \`<!DOCTYPE html>
+            return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1593,11 +1593,11 @@ MIT © 2024\`;
         }
     <\/script>
 </body>
-</html>\`;
+</html>`;
         }
 
         function generateNotesApp(query) {
-            return \`<!DOCTYPE html>
+            return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1709,25 +1709,25 @@ MIT © 2024\`;
                 grid.innerHTML = '<div class="col-span-3 text-center py-16 text-amber-400"><div class="text-6xl mb-4">📭</div><p class="text-xl">No notes yet. Create one!</p></div>';
                 return;
             }
-            grid.innerHTML = filtered.map(n => \`
-                <div class="note-card \${n.color} rounded-2xl p-5 shadow-md hover:shadow-lg transition-all cursor-pointer relative group" onclick="openModal(\${n.id})">
+            grid.innerHTML = filtered.map(n => `
+                <div class="note-card ${n.color} rounded-2xl p-5 shadow-md hover:shadow-lg transition-all cursor-pointer relative group" onclick="openModal(${n.id})">
                     <button class="delete-btn absolute top-3 right-3 opacity-0 transition-all bg-red-500 text-white w-7 h-7 rounded-full text-xs hover:bg-red-600"
-                        onclick="event.stopPropagation(); deleteNote(\${n.id})">✕</button>
-                    <h3 class="font-bold text-gray-800 text-lg mb-2 pr-8">\${n.title || 'Untitled'}</h3>
-                    <p class="text-gray-600 text-sm line-clamp-4">\${n.content}</p>
-                    <p class="text-gray-400 text-xs mt-3">\${new Date(n.updated).toLocaleDateString()}</p>
+                        onclick="event.stopPropagation(); deleteNote(${n.id})">✕</button>
+                    <h3 class="font-bold text-gray-800 text-lg mb-2 pr-8">${n.title || 'Untitled'}</h3>
+                    <p class="text-gray-600 text-sm line-clamp-4">${n.content}</p>
+                    <p class="text-gray-400 text-xs mt-3">${new Date(n.updated).toLocaleDateString()}</p>
                 </div>
-            \`).join('');
+            `).join('');
         }
 
         renderNotes();
     <\/script>
 </body>
-</html>\`;
+</html>`;
         }
 
         function generateDrawingApp(query) {
-            return \`<!DOCTYPE html>
+            return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1849,11 +1849,11 @@ MIT © 2024\`;
         }
     <\/script>
 </body>
-</html>\`;
+</html>`;
         }
 
         function generateMusicPlayerApp(query) {
-            return \`<!DOCTYPE html>
+            return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1967,27 +1967,27 @@ MIT © 2024\`;
         }
 
         function renderPlaylist() {
-            document.getElementById('playlist').innerHTML = tracks.map((t, i) => \`
-                <div onclick="clearInterval(interval); playing=false; loadTrack(\${i}); togglePlay();"
-                    class="flex items-center gap-3 p-2 rounded-xl cursor-pointer transition-all \${i === currentTrack ? 'bg-purple-600/30 border border-purple-500/30' : 'hover:bg-white/5'}">
-                    <span class="text-xl">\${t.art}</span>
+            document.getElementById('playlist').innerHTML = tracks.map((t, i) => `
+                <div onclick="clearInterval(interval); playing=false; loadTrack(${i}); togglePlay();"
+                    class="flex items-center gap-3 p-2 rounded-xl cursor-pointer transition-all ${i === currentTrack ? 'bg-purple-600/30 border border-purple-500/30' : 'hover:bg-white/5'}">
+                    <span class="text-xl">${t.art}</span>
                     <div class="flex-1 min-w-0">
-                        <div class="text-white text-sm font-medium truncate">\${t.title}</div>
-                        <div class="text-gray-400 text-xs">\${t.artist}</div>
+                        <div class="text-white text-sm font-medium truncate">${t.title}</div>
+                        <div class="text-gray-400 text-xs">${t.artist}</div>
                     </div>
-                    <span class="text-gray-400 text-xs">\${formatTime(t.duration)}</span>
+                    <span class="text-gray-400 text-xs">${formatTime(t.duration)}</span>
                 </div>
-            \`).join('');
+            `).join('');
         }
 
         loadTrack(0);
     <\/script>
 </body>
-</html>\`;
+</html>`;
         }
 
         function generateChatApp(query) {
-            return \`<!DOCTYPE html>
+            return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -2062,28 +2062,28 @@ MIT © 2024\`;
             const el = document.createElement('div');
             el.className = 'flex gap-2 message-' + dir + (isIn ? '' : ' justify-end');
             el.innerHTML = isIn
-                ? \`<div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center text-sm flex-shrink-0">🤖</div>
+                ? `<div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center text-sm flex-shrink-0">🤖</div>
                    <div class="bg-white rounded-2xl rounded-tl-none px-4 py-3 max-w-xs shadow-sm">
-                       <p class="text-gray-800">\${text}</p><span class="text-xs text-gray-400 mt-1 block">\${time}</span></div>\`
-                : \`<div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl rounded-tr-none px-4 py-3 max-w-xs shadow-sm">
-                       <p class="text-white">\${text}</p><span class="text-xs text-purple-200 mt-1 block">\${time}</span></div>\`;
+                       <p class="text-gray-800">${text}</p><span class="text-xs text-gray-400 mt-1 block">${time}</span></div>`
+                : `<div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl rounded-tr-none px-4 py-3 max-w-xs shadow-sm">
+                       <p class="text-white">${text}</p><span class="text-xs text-purple-200 mt-1 block">${time}</span></div>`;
             messages.appendChild(el);
             messages.scrollTop = messages.scrollHeight;
         }
     <\/script>
 </body>
-</html>\`;
+</html>`;
         }
 
         function generateGenericApp(query) {
             // For unrecognized queries, create a nice landing/utility page
             const title = query.charAt(0).toUpperCase() + query.slice(1);
-            return \`<!DOCTYPE html>
+            return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>\${title}</title>
+    <title>${title}</title>
     <script src="https://cdn.tailwindcss.com"><\/script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
@@ -2094,7 +2094,7 @@ MIT © 2024\`;
     <div class="max-w-lg w-full text-center">
         <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-10 border border-white/20 shadow-2xl">
             <div class="text-6xl mb-6">✨</div>
-            <h1 class="text-3xl font-bold mb-3">\${title}</h1>
+            <h1 class="text-3xl font-bold mb-3">${title}</h1>
             <p class="text-gray-300 mb-8">Your custom AI-generated app is ready!</p>
             <div class="bg-white/5 rounded-2xl p-6 text-left space-y-3 mb-6">
                 <div class="flex items-center gap-3"><span class="text-green-400">✓</span><span>Fully responsive design</span></div>
@@ -2106,7 +2106,7 @@ MIT © 2024\`;
         </div>
     </div>
 </body>
-</html>\`;
+</html>`;
         }
 
     </script>
