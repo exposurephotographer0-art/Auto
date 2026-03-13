@@ -282,8 +282,10 @@
             }, 800);
 
             try {
-                // Call Claude API to generate the app
-                const response = await fetch("https://api.anthropic.com/v1/messages", {
+                // Call Claude API via Cloudflare Worker proxy
+                // 👇 Replace this URL with your actual Cloudflare Worker URL
+                const WORKER_URL = "https://sweet-wave-f221.exposurephotographer0.workers.dev";
+                const response = await fetch(WORKER_URL, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
