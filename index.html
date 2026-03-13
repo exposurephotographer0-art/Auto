@@ -9,76 +9,45 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .code-font { font-family: 'Fira Code', monospace; }
-        
+
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
-        .animate-gradient {
-            background-size: 200% 200%;
-            animation: gradient 15s ease infinite;
-        }
-        
+        .animate-gradient { background-size: 200% 200%; animation: gradient 15s ease infinite; }
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
         }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8); }
+            0%, 100% { box-shadow: 0 0 20px rgba(99,102,241,0.5); }
+            50% { box-shadow: 0 0 40px rgba(99,102,241,0.8); }
         }
-        
-        .glow-effect {
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
-        
+        .glow-effect { animation: pulse-glow 3s ease-in-out infinite; }
+
         .glass-panel {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        
-        .slide-up {
-            animation: slideUp 0.5s ease-out forwards;
-        }
-        
+
+        .typing-cursor::after { content: '|'; animation: blink 1s infinite; }
+        @keyframes blink { 0%,50% { opacity:1; } 51%,100% { opacity:0; } }
+
+        .slide-up { animation: slideUp 0.5s ease-out forwards; }
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity:0; transform:translateY(20px); }
+            to   { opacity:1; transform:translateY(0); }
         }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4f46e5;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6366f1;
-        }
+
+        ::-webkit-scrollbar { width:8px; height:8px; }
+        ::-webkit-scrollbar-track { background:#1e293b; }
+        ::-webkit-scrollbar-thumb { background:#4f46e5; border-radius:4px; }
+        ::-webkit-scrollbar-thumb:hover { background:#6366f1; }
     </style>
 </head>
 <body class="bg-slate-900 text-white min-h-screen overflow-x-hidden">
@@ -88,14 +57,14 @@
         <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 animate-gradient opacity-50"></div>
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
             <div class="absolute -top-40 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-            <div class="absolute -bottom-40 -right-40 w-80 h-80 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 2s;"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay: 4s;"></div>
+            <div class="absolute -bottom-40 -right-40 w-80 h-80 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay:2s"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style="animation-delay:4s"></div>
         </div>
     </div>
 
     <!-- Main Container -->
     <div class="relative z-10 container mx-auto px-4 py-8 max-w-6xl">
-        
+
         <!-- Header -->
         <header class="text-center mb-12 slide-up">
             <div class="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-purple-300">
@@ -106,49 +75,51 @@
                 Build HTML Apps<br>With AI
             </h1>
             <p class="text-xl text-gray-300 max-w-2xl mx-auto">
-                Describe any app you want, and our AI will generate a complete, ready-to-use HTML application instantly. 
+                Describe any app you want, and our AI will generate a complete, ready-to-use HTML application instantly.
                 <span class="text-purple-400 font-semibold">100% Free.</span>
             </p>
         </header>
 
         <!-- Search Interface -->
-        <div class="max-w-3xl mx-auto mb-12 slide-up" style="animation-delay: 0.2s;">
+        <div class="max-w-3xl mx-auto mb-12 slide-up" style="animation-delay:0.2s">
             <div class="glass-panel rounded-2xl p-2 glow-effect">
                 <div class="relative">
-                    <input 
-                        type="text" 
-                        id="searchInput" 
-                        placeholder="Describe your app... (e.g., 'todo list with local storage', 'calculator with history', 'weather dashboard')"
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Describe your app… (e.g. 'todo list with local storage', 'calculator with history')"
                         class="w-full bg-slate-800/50 border border-slate-700 rounded-xl px-6 py-4 text-lg placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all code-font"
-                        onkeypress="handleKeyPress(event)"
                     >
-                    <button 
-                        onclick="generateApp()"
+                    <button
+                        id="generateBtn"
                         class="absolute right-2 top-2 bottom-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white px-6 rounded-lg font-semibold transition-all transform hover:scale-105 flex items-center gap-2"
                     >
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         Generate
                     </button>
                 </div>
             </div>
-            
+
             <!-- Quick Suggestions -->
-            <div class="flex flex-wrap gap-2 mt-4 justify-center">
-                <button onclick="setSearch('todo list with categories')" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">
-                    📝 Todo List
-                </button>
-                <button onclick="setSearch('calculator with dark mode')" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">
-                    🧮 Calculator
-                </button>
-                <button onclick="setSearch('password generator')" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">
-                    🔐 Password Generator
-                </button>
-                <button onclick="setSearch('markdown editor preview')" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">
-                    📝 Markdown Editor
-                </button>
-                <button onclick="setSearch('pomodoro timer with stats')" class="px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">
-                    ⏱️ Pomodoro Timer
-                </button>
+            <div class="flex flex-wrap gap-2 mt-4 justify-center" id="suggestions">
+                <button data-prompt="todo list with categories and local storage" class="suggestion px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">📝 Todo List</button>
+                <button data-prompt="calculator with dark mode and history" class="suggestion px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">🧮 Calculator</button>
+                <button data-prompt="secure password generator with strength meter" class="suggestion px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">🔐 Password Generator</button>
+                <button data-prompt="markdown editor with live preview" class="suggestion px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">✍️ Markdown Editor</button>
+                <button data-prompt="pomodoro timer with stats and settings" class="suggestion px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">⏱️ Pomodoro Timer</button>
+                <button data-prompt="expense tracker with charts and categories" class="suggestion px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all text-sm text-gray-300 hover:text-white">💰 Expense Tracker</button>
+            </div>
+
+            <!-- API Config -->
+            <div class="mt-4 text-center">
+                <button id="configToggle" class="text-xs text-gray-500 hover:text-gray-300 transition-colors underline">⚙️ Configure API endpoint</button>
+                <div id="configPanel" class="hidden mt-3 glass-panel rounded-xl p-4 text-left">
+                    <label class="text-xs text-gray-400 block mb-1">Cloudflare Worker URL</label>
+                    <input id="workerUrl" type="text" placeholder="https://your-worker.your-subdomain.workers.dev"
+                        class="w-full bg-slate-800 border border-slate-600 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 code-font">
+                    <p class="text-xs text-gray-500 mt-2">Your API key stays in your Cloudflare Worker — never exposed in the browser.</p>
+                    <button id="saveConfig" class="mt-2 px-4 py-1.5 rounded-lg bg-purple-700 hover:bg-purple-600 text-sm font-medium transition-all">Save</button>
+                </div>
             </div>
         </div>
 
@@ -158,80 +129,93 @@
                 <div class="absolute inset-0 border-4 border-purple-500/30 rounded-full"></div>
                 <div class="absolute inset-0 border-4 border-purple-500 rounded-full border-t-transparent animate-spin"></div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                 </div>
             </div>
-            <h3 class="text-2xl font-bold mb-2 text-purple-300">AI is crafting your app...</h3>
-            <p id="loadingText" class="text-gray-400 typing-cursor">Analyzing requirements</p>
+            <h3 class="text-2xl font-bold mb-2 text-purple-300">AI is crafting your app…</h3>
+            <p id="loadingText" class="text-gray-400" style="min-height:1.5em"></p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="hidden max-w-3xl mx-auto text-center py-12">
+            <div class="glass-panel rounded-2xl p-8 border border-red-500/30">
+                <div class="text-5xl mb-4">⚠️</div>
+                <h3 class="text-xl font-bold text-red-400 mb-2">Generation failed</h3>
+                <p id="errorMsg" class="text-gray-400 mb-4 text-sm"></p>
+                <button id="retryBtn" class="px-6 py-2 rounded-lg bg-purple-700 hover:bg-purple-600 font-medium transition-all">Try again</button>
+            </div>
         </div>
 
         <!-- Results Section -->
         <div id="resultsSection" class="hidden slide-up">
-            
+
             <!-- App Preview -->
             <div class="glass-panel rounded-2xl p-1 mb-6 overflow-hidden">
-                <div class="bg-slate-800/50 rounded-xl p-4 border-b border-white/10 flex justify-between items-center">
+                <div class="bg-slate-800/50 rounded-xl p-3 border-b border-white/10 flex justify-between items-center flex-wrap gap-2">
                     <div class="flex items-center gap-3">
-                        <div class="flex gap-2">
+                        <div class="flex gap-1.5">
                             <div class="w-3 h-3 rounded-full bg-red-500"></div>
                             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                             <div class="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <span class="text-sm text-gray-400 ml-2" id="appTitle">Generated App</span>
+                        <span class="text-sm text-gray-400 ml-1 truncate max-w-xs" id="appTitle">Generated App</span>
                     </div>
                     <div class="flex gap-2">
-                        <button onclick="copyCode()" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-all flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <button id="copyBtn" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition-all flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                             Copy Code
                         </button>
-                        <button onclick="downloadApp()" class="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-sm font-medium transition-all flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <button id="downloadBtn" class="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-sm font-medium transition-all flex items-center gap-1.5">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                             Download HTML
                         </button>
                     </div>
                 </div>
-                <div class="grid md:grid-cols-2 gap-0">
-                    <!-- Live Preview -->
-                    <div class="bg-white h-96 md:h-[600px] relative">
-                        <iframe id="previewFrame" class="w-full h-full border-0"></iframe>
-                    </div>
-                    <!-- Code View -->
-                    <div class="bg-slate-950 p-4 overflow-auto h-96 md:h-[600px] border-l border-white/10">
-                        <pre class="code-font text-sm text-gray-300"><code id="codeDisplay"></code></pre>
+
+                <!-- Tab bar -->
+                <div class="flex border-b border-white/10 bg-slate-900/50">
+                    <button id="tabPreview" class="px-5 py-2.5 text-sm font-medium text-white border-b-2 border-purple-500 transition-all">👁 Preview</button>
+                    <button id="tabCode" class="px-5 py-2.5 text-sm font-medium text-gray-400 hover:text-white border-b-2 border-transparent hover:border-white/20 transition-all">💻 Code</button>
+                </div>
+
+                <div class="relative" style="height:600px">
+                    <iframe id="previewFrame" class="w-full h-full border-0 bg-white" sandbox="allow-scripts allow-same-origin"></iframe>
+                    <div id="codeView" class="hidden absolute inset-0 bg-slate-950 overflow-auto p-4">
+                        <pre class="code-font text-sm text-gray-300 whitespace-pre-wrap break-all"><code id="codeDisplay"></code></pre>
                     </div>
                 </div>
             </div>
 
             <!-- Features Grid -->
-            <div class="grid md:grid-cols-3 gap-4 mb-8">
-                <div class="glass-panel rounded-xl p-6 text-center hover:bg-white/10 transition-all cursor-pointer group">
-                    <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+            <div class="grid md:grid-cols-3 gap-4 mb-10">
+                <div class="glass-panel rounded-xl p-5 text-center">
+                    <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                     </div>
-                    <h4 class="font-semibold mb-1">Responsive Design</h4>
-                    <p class="text-sm text-gray-400">Works on all devices automatically</p>
+                    <h4 class="font-semibold mb-1 text-sm">Responsive Design</h4>
+                    <p class="text-xs text-gray-400">Works on all devices</p>
                 </div>
-                <div class="glass-panel rounded-xl p-6 text-center hover:bg-white/10 transition-all cursor-pointer group">
-                    <div class="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <div class="glass-panel rounded-xl p-5 text-center">
+                    <div class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <h4 class="font-semibold mb-1">Zero Dependencies</h4>
-                    <p class="text-sm text-gray-400">Single HTML file, no installation needed</p>
+                    <h4 class="font-semibold mb-1 text-sm">Zero Dependencies</h4>
+                    <p class="text-xs text-gray-400">Single HTML file</p>
                 </div>
-                <div class="glass-panel rounded-xl p-6 text-center hover:bg-white/10 transition-all cursor-pointer group">
-                    <div class="w-12 h-12 rounded-full bg-pink-500/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                        <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <div class="glass-panel rounded-xl p-5 text-center">
+                    <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center mx-auto mb-2">
+                        <svg class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                     </div>
-                    <h4 class="font-semibold mb-1">Privacy First</h4>
-                    <p class="text-sm text-gray-400">Runs locally in your browser</p>
+                    <h4 class="font-semibold mb-1 text-sm">Privacy First</h4>
+                    <p class="text-xs text-gray-400">Runs locally in your browser</p>
                 </div>
             </div>
         </div>
 
         <!-- History Section -->
-        <div id="historySection" class="hidden max-w-3xl mx-auto">
-            <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div id="historySection" class="hidden max-w-3xl mx-auto mb-12">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 Recent Generations
             </h3>
             <div id="historyList" class="space-y-3"></div>
@@ -240,144 +224,219 @@
     </div>
 
     <script>
+        // ─── Config ───────────────────────────────────────────────────────────
+        const WORKER_URL_KEY = 'aibuilder_worker_url';
+        let workerUrl = localStorage.getItem(WORKER_URL_KEY) || '';
         let currentCode = '';
         let generationHistory = JSON.parse(localStorage.getItem('appHistory') || '[]');
 
-        // Update loading text animation
+        // ─── Config panel ────────────────────────────────────────────────────
+        document.getElementById('configToggle').addEventListener('click', () => {
+            const panel = document.getElementById('configPanel');
+            panel.classList.toggle('hidden');
+            document.getElementById('workerUrl').value = workerUrl;
+        });
+        document.getElementById('saveConfig').addEventListener('click', () => {
+            workerUrl = document.getElementById('workerUrl').value.trim();
+            localStorage.setItem(WORKER_URL_KEY, workerUrl);
+            document.getElementById('configPanel').classList.add('hidden');
+            showToast('Worker URL saved!');
+        });
+
+        // ─── Input handling ───────────────────────────────────────────────────
+        document.getElementById('searchInput').addEventListener('keydown', e => {
+            if (e.key === 'Enter') generateApp();
+        });
+        document.getElementById('generateBtn').addEventListener('click', generateApp);
+
+        document.querySelectorAll('.suggestion').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('searchInput').value = btn.dataset.prompt;
+                generateApp();
+            });
+        });
+
+        // ─── Tab switching ────────────────────────────────────────────────────
+        document.getElementById('tabPreview').addEventListener('click', () => {
+            document.getElementById('previewFrame').classList.remove('hidden');
+            document.getElementById('codeView').classList.add('hidden');
+            document.getElementById('tabPreview').classList.replace('text-gray-400','text-white');
+            document.getElementById('tabPreview').classList.replace('border-transparent','border-purple-500');
+            document.getElementById('tabCode').classList.replace('text-white','text-gray-400');
+            document.getElementById('tabCode').classList.replace('border-purple-500','border-transparent');
+        });
+        document.getElementById('tabCode').addEventListener('click', () => {
+            document.getElementById('previewFrame').classList.add('hidden');
+            document.getElementById('codeView').classList.remove('hidden');
+            document.getElementById('tabCode').classList.replace('text-gray-400','text-white');
+            document.getElementById('tabCode').classList.replace('border-transparent','border-purple-500');
+            document.getElementById('tabPreview').classList.replace('text-white','text-gray-400');
+            document.getElementById('tabPreview').classList.replace('border-purple-500','border-transparent');
+        });
+
+        // ─── Copy & Download ──────────────────────────────────────────────────
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            navigator.clipboard.writeText(currentCode).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('bg-green-600');
+                setTimeout(() => {
+                    btn.innerHTML = '<svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>Copy Code';
+                    btn.classList.remove('bg-green-600');
+                }, 2000);
+            });
+        });
+
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const slug = document.getElementById('searchInput').value.trim()
+                .toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40) || 'app';
+            const blob = new Blob([currentCode], { type: 'text/html' });
+            const a = Object.assign(document.createElement('a'), {
+                href: URL.createObjectURL(blob),
+                download: slug + '.html'
+            });
+            a.click();
+            URL.revokeObjectURL(a.href);
+        });
+
+        document.getElementById('retryBtn').addEventListener('click', generateApp);
+
+        // ─── Loading text ─────────────────────────────────────────────────────
         const loadingMessages = [
-            "Analyzing requirements...",
-            "Designing user interface...",
-            "Writing HTML structure...",
-            "Adding CSS styling...",
-            "Implementing JavaScript logic...",
-            "Optimizing for mobile...",
-            "Finalizing app..."
+            'Analyzing requirements…',
+            'Designing user interface…',
+            'Writing HTML structure…',
+            'Adding CSS styling…',
+            'Implementing JavaScript logic…',
+            'Optimizing for mobile…',
+            'Finalizing app…'
         ];
+        let loadingInterval = null;
 
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') generateApp();
+        function startLoading() {
+            document.getElementById('loadingState').classList.remove('hidden');
+            document.getElementById('resultsSection').classList.add('hidden');
+            document.getElementById('errorState').classList.add('hidden');
+            document.getElementById('generateBtn').disabled = true;
+            document.getElementById('generateBtn').classList.add('opacity-50');
+
+            let idx = 0;
+            const el = document.getElementById('loadingText');
+            el.textContent = loadingMessages[0];
+            loadingInterval = setInterval(() => {
+                idx = (idx + 1) % loadingMessages.length;
+                el.textContent = loadingMessages[idx];
+            }, 900);
         }
 
-        function setSearch(text) {
-            document.getElementById('searchInput').value = text;
-            generateApp();
+        function stopLoading() {
+            clearInterval(loadingInterval);
+            document.getElementById('loadingState').classList.add('hidden');
+            document.getElementById('generateBtn').disabled = false;
+            document.getElementById('generateBtn').classList.remove('opacity-50');
         }
 
+        // ─── Main generate function ───────────────────────────────────────────
         async function generateApp() {
             const query = document.getElementById('searchInput').value.trim();
             if (!query) {
-                shakeElement(document.getElementById('searchInput'));
+                const inp = document.getElementById('searchInput');
+                inp.classList.add('border-red-500');
+                inp.focus();
+                setTimeout(() => inp.classList.remove('border-red-500'), 1200);
                 return;
             }
 
-            // Show loading
-            document.getElementById('loadingState').classList.remove('hidden');
-            document.getElementById('resultsSection').classList.add('hidden');
-            
-            // Animate loading text
-            let messageIndex = 0;
-            const loadingInterval = setInterval(() => {
-                document.getElementById('loadingText').textContent = loadingMessages[messageIndex];
-                messageIndex = (messageIndex + 1) % loadingMessages.length;
-            }, 800);
+            if (!workerUrl) {
+                // Prompt user to configure
+                document.getElementById('configPanel').classList.remove('hidden');
+                document.getElementById('workerUrl').focus();
+                document.getElementById('configToggle').scrollIntoView({ behavior: 'smooth' });
+                showToast('Please set your Cloudflare Worker URL first', 'error');
+                return;
+            }
+
+            startLoading();
 
             try {
-                // Call Claude API via Cloudflare Worker proxy
-                // 👇 Replace this URL with your actual Cloudflare Worker URL
-                const WORKER_URL = "https://sweet-wave-f221.exposurephotographer0.workers.dev";
-                const response = await fetch(WORKER_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                const response = await fetch(workerUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        model: "claude-sonnet-4-20250514",
+                        model: 'claude-sonnet-4-20250514',
                         max_tokens: 8000,
                         messages: [{
-                            role: "user",
-                            content: `Create a complete, beautiful, single-file HTML application for: "${query}"
-
-Requirements:
-- Complete standalone HTML file with embedded CSS and JavaScript
-- Use Tailwind CSS via CDN (https://cdn.tailwindcss.com) for styling
-- Modern, polished UI with gradients, rounded corners, smooth animations
-- Fully functional — all features should actually work
-- Mobile responsive
-- No external dependencies except Tailwind CDN
-- Include a title matching the app purpose
-
-Return ONLY the raw HTML code starting with <!DOCTYPE html> — no explanation, no markdown, no backticks.`
+                            role: 'user',
+                            content: [
+                                'Create a complete, beautiful, single-file HTML application for: "' + query + '"',
+                                '',
+                                'Requirements:',
+                                '- Complete standalone HTML file with all CSS and JavaScript embedded',
+                                '- Use Tailwind CSS via CDN (https://cdn.tailwindcss.com) for styling',
+                                '- Modern, polished UI with gradients, rounded corners, smooth animations',
+                                '- Fully functional — all features must actually work',
+                                '- Mobile responsive',
+                                '- No external dependencies except Tailwind CDN',
+                                '- Page title should match the app purpose',
+                                '',
+                                'Return ONLY the raw HTML starting with <!DOCTYPE html> — no explanation, no markdown, no backticks.'
+                            ].join('\n')
                         }]
                     })
                 });
 
-                const data = await response.json();
-                clearInterval(loadingInterval);
-
-                if (data.content && data.content[0] && data.content[0].text) {
-                    currentCode = data.content[0].text.trim();
-                    // Strip any accidental markdown fences
-                    currentCode = currentCode.replace(/^```html\n?/i, '').replace(/\n?```$/i, '').trim();
-                } else {
-                    // Fallback to local generation
-                    currentCode = generateHTMLApp(query);
+                if (!response.ok) {
+                    throw new Error('Worker returned ' + response.status + ': ' + await response.text());
                 }
-            } catch (err) {
-                clearInterval(loadingInterval);
-                // Fallback to local generation if API fails
-                currentCode = generateHTMLApp(query);
-            }
 
-            // Display results
-            displayResults(query);
-            
-            // Save to history
-            saveToHistory(query, currentCode);
+                const data = await response.json();
+                stopLoading();
+
+                if (data.error) {
+                    throw new Error(data.error.message || JSON.stringify(data.error));
+                }
+
+                if (!data.content || !data.content[0] || !data.content[0].text) {
+                    throw new Error('Unexpected response format from API');
+                }
+
+                currentCode = data.content[0].text.trim()
+                    .replace(/^```html\s*/i, '').replace(/\s*```$/, '').trim();
+
+                displayResults(query);
+                saveToHistory(query, currentCode);
+
+            } catch (err) {
+                stopLoading();
+                document.getElementById('errorState').classList.remove('hidden');
+                document.getElementById('errorMsg').textContent = err.message;
+                console.error('Generation error:', err);
+            }
         }
 
+        // ─── Display results ──────────────────────────────────────────────────
         function displayResults(query) {
-            document.getElementById('loadingState').classList.add('hidden');
             document.getElementById('resultsSection').classList.remove('hidden');
             document.getElementById('appTitle').textContent = query;
+            document.getElementById('codeDisplay').textContent = currentCode;
 
-            // Update code display
-            const codeDisplay = document.getElementById('codeDisplay');
-            codeDisplay.textContent = currentCode;
+            // Reset to preview tab
+            document.getElementById('tabPreview').click();
 
-            // Update iframe preview
+            // Load into iframe
             const iframe = document.getElementById('previewFrame');
             const blob = new Blob([currentCode], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            iframe.src = url;
+            const blobUrl = URL.createObjectURL(blob);
+            iframe.onload = () => URL.revokeObjectURL(blobUrl);
+            iframe.src = blobUrl;
 
-            // Scroll to results
             document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            renderHistory();
         }
 
-        function copyCode() {
-            navigator.clipboard.writeText(currentCode).then(() => {
-                const btn = event.target.closest('button');
-                const original = btn.innerHTML;
-                btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Copied!';
-                btn.classList.add('bg-green-600');
-                setTimeout(() => { btn.innerHTML = original; btn.classList.remove('bg-green-600'); }, 2000);
-            });
-        }
-
-        function downloadApp() {
-            const title = document.getElementById('searchInput').value.trim().replace(/\s+/g, '-').toLowerCase() || 'app';
-            const blob = new Blob([currentCode], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${title}.html`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
+        // ─── History ──────────────────────────────────────────────────────────
         function saveToHistory(query, code) {
-            generationHistory.unshift({ query, code, timestamp: Date.now() });
-            if (generationHistory.length > 10) generationHistory.pop();
+            generationHistory.unshift({ query, code, ts: Date.now() });
+            if (generationHistory.length > 12) generationHistory.pop();
             localStorage.setItem('appHistory', JSON.stringify(generationHistory));
             renderHistory();
         }
@@ -385,1732 +444,54 @@ Return ONLY the raw HTML code starting with <!DOCTYPE html> — no explanation, 
         function renderHistory() {
             const section = document.getElementById('historySection');
             const list = document.getElementById('historyList');
-            if (generationHistory.length === 0) { section.classList.add('hidden'); return; }
+            if (!generationHistory.length) { section.classList.add('hidden'); return; }
             section.classList.remove('hidden');
-            list.innerHTML = generationHistory.map((item, i) => `
-                <div class="glass-panel rounded-xl p-4 flex justify-between items-center hover:bg-white/10 transition-all cursor-pointer group"
-                     onclick="loadFromHistory(${i})">
-                    <div>
-                        <div class="font-medium text-white">${item.query}</div>
-                        <div class="text-xs text-gray-400 mt-1">${new Date(item.timestamp).toLocaleString()}</div>
-                    </div>
-                    <div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-all">
-                        <button onclick="event.stopPropagation(); loadFromHistory(${i})" class="px-3 py-1 rounded-lg bg-purple-600 text-xs text-white hover:bg-purple-500">Load</button>
-                    </div>
-                </div>
-            `).join('');
+            list.innerHTML = generationHistory.map((item, i) => {
+                const ago = timeAgo(item.ts);
+                return '<div class="glass-panel rounded-xl p-4 flex justify-between items-center hover:bg-white/10 transition-all cursor-pointer group" onclick="loadHistory(' + i + ')">'
+                    + '<div><div class="font-medium text-white text-sm">' + escHtml(item.query) + '</div>'
+                    + '<div class="text-xs text-gray-400 mt-0.5">' + ago + '</div></div>'
+                    + '<button class="opacity-0 group-hover:opacity-100 px-3 py-1 rounded-lg bg-purple-600 text-xs font-medium transition-all">Load</button>'
+                    + '</div>';
+            }).join('');
         }
 
-        function loadFromHistory(index) {
-            currentCode = generationHistory[index].code;
-            document.getElementById('searchInput').value = generationHistory[index].query;
-            displayResults(generationHistory[index].query);
+        function loadHistory(i) {
+            const item = generationHistory[i];
+            currentCode = item.code;
+            document.getElementById('searchInput').value = item.query;
+            displayResults(item.query);
         }
 
-        function shakeElement(el) {
-            el.classList.add('animate-bounce');
-            el.style.borderColor = '#ef4444';
-            setTimeout(() => { el.classList.remove('animate-bounce'); el.style.borderColor = ''; }, 600);
+        function timeAgo(ts) {
+            const s = Math.floor((Date.now() - ts) / 1000);
+            if (s < 60) return 'just now';
+            if (s < 3600) return Math.floor(s/60) + 'm ago';
+            if (s < 86400) return Math.floor(s/3600) + 'h ago';
+            return Math.floor(s/86400) + 'd ago';
         }
 
-        // Init history on load
+        function escHtml(s) {
+            return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        // ─── Toast ────────────────────────────────────────────────────────────
+        function showToast(msg, type) {
+            const t = document.createElement('div');
+            t.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-5 py-3 rounded-xl text-sm font-medium shadow-2xl z-50 transition-all '
+                + (type === 'error' ? 'bg-red-600 text-white' : 'bg-green-600 text-white');
+            t.textContent = msg;
+            document.body.appendChild(t);
+            setTimeout(() => t.remove(), 2800);
+        }
+
+        // ─── Init ─────────────────────────────────────────────────────────────
         renderHistory();
 
-        function generateHTMLApp(query) {
-            const lowerQuery = query.toLowerCase();
-            
-            // Determine app type based on keywords
-            if (lowerQuery.includes('todo') || lowerQuery.includes('task')) {
-                return generateTodoApp(query);
-            } else if (lowerQuery.includes('calc')) {
-                return generateCalculatorApp(query);
-            } else if (lowerQuery.includes('password') || lowerQuery.includes('generator')) {
-                return generatePasswordApp(query);
-            } else if (lowerQuery.includes('markdown') || lowerQuery.includes('editor')) {
-                return generateMarkdownApp(query);
-            } else if (lowerQuery.includes('pomodoro') || lowerQuery.includes('timer')) {
-                return generatePomodoroApp(query);
-            } else if (lowerQuery.includes('weather')) {
-                return generateWeatherApp(query);
-            } else if (lowerQuery.includes('note') || lowerQuery.includes('memo')) {
-                return generateNotesApp(query);
-            } else if (lowerQuery.includes('draw') || lowerQuery.includes('paint')) {
-                return generateDrawingApp(query);
-            } else if (lowerQuery.includes('music') || lowerQuery.includes('player')) {
-                return generateMusicPlayerApp(query);
-            } else if (lowerQuery.includes('chat') || lowerQuery.includes('message')) {
-                return generateChatApp(query);
-            } else {
-                return generateGenericApp(query);
-            }
+        // Pre-fill worker URL if already saved
+        if (workerUrl) {
+            document.getElementById('workerUrl').value = workerUrl;
         }
-
-        function generateTodoApp(query) {
-            const hasCategories = query.includes('categor');
-            const hasLocalStorage = true; // Always include for utility
-            
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Generated Todo App</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .task-enter { animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .checkbox:checked + div { text-decoration: line-through; opacity: 0.5; }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 min-h-screen p-4">
-    <div class="max-w-2xl mx-auto">
-        <div class="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/50">
-            <header class="mb-8 text-center">
-                <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 mb-2">
-                    ✨ My Tasks
-                </h1>
-                <p class="text-gray-500" id="dateDisplay"></p>
-            </header>
-
-            <div class="flex gap-2 mb-6">
-                <input type="text" id="taskInput" placeholder="Add a new task..." 
-                    class="flex-1 px-6 py-4 rounded-2xl border-2 border-gray-200 focus:border-indigo-500 focus:outline-none transition-all text-lg"
-                    onkeypress="if(event.key==='Enter') addTask()">
-                <button onclick="addTask()" 
-                    class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg hover:scale-105 transition-all">
-                    Add
-                </button>
-            </div>
-
-            ${hasCategories ? `
-            <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
-                <button onclick="filterCategory('all')" class="category-btn px-4 py-2 rounded-full bg-indigo-600 text-white text-sm font-medium transition-all" data-cat="all">All</button>
-                <button onclick="filterCategory('work')" class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-300 transition-all" data-cat="work">Work</button>
-                <button onclick="filterCategory('personal')" class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-300 transition-all" data-cat="personal">Personal</button>
-                <button onclick="filterCategory('shopping')" class="category-btn px-4 py-2 rounded-full bg-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-300 transition-all" data-cat="shopping">Shopping</button>
-            </div>
-            ` : ''}
-
-            <div class="space-y-3" id="taskList"></div>
-
-            <div class="mt-6 pt-6 border-t border-gray-200 flex justify-between items-center text-sm text-gray-500">
-                <span id="taskCount">0 tasks remaining</span>
-                <button onclick="clearCompleted()" class="text-red-500 hover:text-red-700 font-medium transition-colors">
-                    Clear Completed
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-        let currentFilter = 'all';
-        
-        document.getElementById('dateDisplay').textContent = new Date().toLocaleDateString('en-US', { 
-            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
-        });
-
-        function addTask() {
-            const input = document.getElementById('taskInput');
-            const text = input.value.trim();
-            if (!text) return;
-
-            const task = {
-                id: Date.now(),
-                text: text,
-                completed: false,
-                category: '${hasCategories ? 'work' : 'general'}',
-                createdAt: new Date().toISOString()
-            };
-
-            tasks.push(task);
-            saveTasks();
-            input.value = '';
-            renderTasks();
-        }
-
-        function toggleTask(id) {
-            const task = tasks.find(t => t.id === id);
-            if (task) {
-                task.completed = !task.completed;
-                saveTasks();
-                renderTasks();
-            }
-        }
-
-        function deleteTask(id) {
-            tasks = tasks.filter(t => t.id !== id);
-            saveTasks();
-            renderTasks();
-        }
-
-        function saveTasks() {
-            localStorage.setItem('tasks', JSON.stringify(tasks));
-        }
-
-        function renderTasks() {
-            const list = document.getElementById('taskList');
-            const filtered = currentFilter === 'all' ? tasks : tasks.filter(t => t.category === currentFilter);
-            const activeTasks = filtered.filter(t => !t.completed);
-            
-            document.getElementById('taskCount').textContent = activeTasks.length + ' task' + (activeTasks.length !== 1 ? 's' : '') + ' remaining';
-            
-            list.innerHTML = filtered.map(task => \`
-                <div class="task-enter flex items-center gap-4 p-4 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all group">
-                    <input type="checkbox" \${task.completed ? 'checked' : ''} onchange="toggleTask(\${task.id})"
-                        class="checkbox w-6 h-6 rounded-full border-2 border-indigo-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer">
-                    <div class="flex-1 \${task.completed ? 'line-through text-gray-400' : 'text-gray-800'} font-medium">
-                        \${task.text}
-                        ${hasCategories ? \`<span class="ml-2 text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-700">\${task.category}</span>\` : ''}
-                    </div>
-                    <button onclick="deleteTask(\${task.id})" class="opacity-0 group-hover:opacity-100 text-red-500 hover:text-red-700 transition-all p-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                    </button>
-                </div>
-            \`).join('');
-        }
-
-        function clearCompleted() {
-            tasks = tasks.filter(t => !t.completed);
-            saveTasks();
-            renderTasks();
-        }
-
-        ${hasCategories ? `
-        function filterCategory(cat) {
-            currentFilter = cat;
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                if (btn.dataset.cat === cat) {
-                    btn.classList.remove('bg-gray-200', 'text-gray-700');
-                    btn.classList.add('bg-indigo-600', 'text-white');
-                } else {
-                    btn.classList.add('bg-gray-200', 'text-gray-700');
-                    btn.classList.remove('bg-indigo-600', 'text-white');
-                }
-            });
-            renderTasks();
-        }
-        ` : ''}
-
-        renderTasks();
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generateCalculatorApp(query) {
-            const hasDarkMode = query.includes('dark');
-            const hasHistory = query.includes('history');
-            
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Calculator</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .btn-shadow { box-shadow: 0 4px 0 0 rgba(0,0,0,0.2); }
-        .btn-shadow:active { box-shadow: 0 0 0 0 rgba(0,0,0,0.2); transform: translateY(4px); }
-        .display-glow { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-    </style>
-</head>
-<body class="${hasDarkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-orange-100 to-red-100'} min-h-screen flex items-center justify-center p-4 transition-colors duration-500" id="body">
-    <div class="max-w-md w-full">
-        <div class="${hasDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} rounded-3xl shadow-2xl p-6 border transition-all duration-500" id="calculator">
-            
-            ${hasDarkMode ? `
-            <button onclick="toggleTheme()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-700 transition-colors">
-                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            </button>
-            ` : ''}
-
-            <div class="${hasDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-800'} rounded-2xl p-6 mb-4 text-right transition-all duration-500">
-                <div class="text-sm ${hasDarkMode ? 'text-gray-400' : 'text-gray-500'} mb-1 h-6" id="previous"></div>
-                <div class="text-4xl font-bold display-glow break-all" id="display">0</div>
-            </div>
-
-            <div class="grid grid-cols-4 gap-3">
-                <button onclick="clearDisplay()" class="col-span-2 bg-red-500 hover:bg-red-600 text-white p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">AC</button>
-                <button onclick="deleteLast()" class="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">DEL</button>
-                <button onclick="appendOperator('/')" class="bg-indigo-500 hover:bg-indigo-600 text-white p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">÷</button>
-                
-                <button onclick="appendNumber('7')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">7</button>
-                <button onclick="appendNumber('8')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">8</button>
-                <button onclick="appendNumber('9')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">9</button>
-                <button onclick="appendOperator('*')" class="bg-indigo-500 hover:bg-indigo-600 text-white p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">×</button>
-                
-                <button onclick="appendNumber('4')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">4</button>
-                <button onclick="appendNumber('5')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">5</button>
-                <button onclick="appendNumber('6')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">6</button>
-                <button onclick="appendOperator('-')" class="bg-indigo-500 hover:bg-indigo-600 text-white p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">−</button>
-                
-                <button onclick="appendNumber('1')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">1</button>
-                <button onclick="appendNumber('2')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">2</button>
-                <button onclick="appendNumber('3')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">3</button>
-                <button onclick="appendOperator('+')" class="bg-indigo-500 hover:bg-indigo-600 text-white p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">+</button>
-                
-                <button onclick="appendNumber('0')" class="col-span-2 ${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">0</button>
-                <button onclick="appendNumber('.')" class="${hasDarkMode ? 'bg-gray-700 text-white hover:bg-gray-600' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">.</button>
-                <button onclick="calculate()" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-2xl font-bold text-lg btn-shadow transition-all">=</button>
-            </div>
-        </div>
-
-        ${hasHistory ? `
-        <div class="mt-6 ${hasDarkMode ? 'bg-gray-800 text-white' : 'bg-white'} rounded-2xl shadow-lg p-4 max-h-48 overflow-y-auto transition-all duration-500" id="historyPanel">
-            <h3 class="font-bold mb-2 text-sm uppercase tracking-wider opacity-70">History</h3>
-            <div id="historyList" class="space-y-2 text-sm"></div>
-        </div>
-        ` : ''}
-    </div>
-
-    <script>
-        let display = document.getElementById('display');
-        let previous = document.getElementById('previous');
-        let currentOperand = '';
-        let previousOperand = '';
-        let operation = undefined;
-        let isDark = ${hasDarkMode};
-        ${hasHistory ? `let history = JSON.parse(localStorage.getItem('calcHistory') || '[]');` : ''}
-
-        function appendNumber(num) {
-            if (num === '.' && currentOperand.includes('.')) return;
-            if (currentOperand === '0' && num !== '.') currentOperand = num;
-            else currentOperand += num;
-            updateDisplay();
-        }
-
-        function appendOperator(op) {
-            if (currentOperand === '') return;
-            if (previousOperand !== '') calculate();
-            operation = op;
-            previousOperand = currentOperand;
-            currentOperand = '';
-            updateDisplay();
-        }
-
-        function calculate() {
-            let computation;
-            const prev = parseFloat(previousOperand);
-            const current = parseFloat(currentOperand);
-            if (isNaN(prev) || isNaN(current)) return;
-            
-            switch(operation) {
-                case '+': computation = prev + current; break;
-                case '-': computation = prev - current; break;
-                case '*': computation = prev * current; break;
-                case '/': computation = prev / current; break;
-                default: return;
-            }
-            
-            ${hasHistory ? `
-            const calcString = \`\${previousOperand} \${operation} \${currentOperand} = \${computation}\`;
-            history.unshift(calcString);
-            if (history.length > 10) history.pop();
-            localStorage.setItem('calcHistory', JSON.stringify(history));
-            renderHistory();
-            ` : ''}
-            
-            currentOperand = computation.toString();
-            operation = undefined;
-            previousOperand = '';
-            updateDisplay();
-        }
-
-        function updateDisplay() {
-            display.textContent = currentOperand || '0';
-            previous.textContent = previousOperand + (operation ? ' ' + operation : '');
-        }
-
-        function clearDisplay() {
-            currentOperand = '';
-            previousOperand = '';
-            operation = undefined;
-            updateDisplay();
-        }
-
-        function deleteLast() {
-            currentOperand = currentOperand.toString().slice(0, -1);
-            updateDisplay();
-        }
-
-        ${hasHistory ? `
-        function renderHistory() {
-            const list = document.getElementById('historyList');
-            list.innerHTML = history.map(h => \`<div class="p-2 ${hasDarkMode ? 'bg-gray-700' : 'bg-gray-100'} rounded">\${h}</div>\`).join('');
-        }
-        renderHistory();
-        ` : ''}
-
-        ${hasDarkMode ? `
-        function toggleTheme() {
-            isDark = !isDark;
-            document.getElementById('body').className = isDark 
-                ? 'bg-gray-900 min-h-screen flex items-center justify-center p-4 transition-colors duration-500'
-                : 'bg-gradient-to-br from-orange-100 to-red-100 min-h-screen flex items-center justify-center p-4 transition-colors duration-500';
-        }
-        ` : ''}
-
-        // Keyboard support
-        document.addEventListener('keydown', (e) => {
-            if (e.key >= '0' && e.key <= '9') appendNumber(e.key);
-            if (e.key === '.') appendNumber('.');
-            if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') appendOperator(e.key);
-            if (e.key === 'Enter') calculate();
-            if (e.key === 'Escape') clearDisplay();
-            if (e.key === 'Backspace') deleteLast();
-        });
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generatePasswordApp(query) {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Password Generator</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        .strength-weak { background: linear-gradient(90deg, #ef4444 0%, #ef4444 100%); }
-        .strength-medium { background: linear-gradient(90deg, #eab308 0%, #eab308 100%); }
-        .strength-strong { background: linear-gradient(90deg, #22c55e 0%, #22c55e 100%); }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-lg">
-        <div class="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/20">
-            <div class="text-center mb-8">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 mb-4 shadow-lg">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                </div>
-                <h1 class="text-3xl font-bold text-white mb-2">Password Generator</h1>
-                <p class="text-gray-400">Create secure, random passwords instantly</p>
-            </div>
-
-            <div class="bg-black/30 rounded-2xl p-6 mb-6 relative group">
-                <div class="mono text-2xl text-center text-white break-all min-h-[64px] flex items-center justify-center" id="passwordDisplay">
-                    Click Generate
-                </div>
-                <button onclick="copyPassword()" class="absolute right-2 top-2 p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white opacity-0 group-hover:opacity-100 transition-all" title="Copy">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                </button>
-            </div>
-
-            <div class="mb-6">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-gray-300 text-sm">Password Length</span>
-                    <span class="text-purple-400 font-bold text-lg" id="lengthValue">16</span>
-                </div>
-                <input type="range" min="8" max="32" value="16" id="lengthSlider" 
-                    class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
-                    oninput="updateLength(this.value)">
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mb-6">
-                <label class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all">
-                    <input type="checkbox" id="uppercase" checked class="w-5 h-5 rounded accent-purple-500">
-                    <span class="text-gray-300">Uppercase (A-Z)</span>
-                </label>
-                <label class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all">
-                    <input type="checkbox" id="lowercase" checked class="w-5 h-5 rounded accent-purple-500">
-                    <span class="text-gray-300">Lowercase (a-z)</span>
-                </label>
-                <label class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all">
-                    <input type="checkbox" id="numbers" checked class="w-5 h-5 rounded accent-purple-500">
-                    <span class="text-gray-300">Numbers (0-9)</span>
-                </label>
-                <label class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-all">
-                    <input type="checkbox" id="symbols" checked class="w-5 h-5 rounded accent-purple-500">
-                    <span class="text-gray-300">Symbols (!@#$)</span>
-                </label>
-            </div>
-
-            <div class="mb-6">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-gray-300 text-sm">Strength</span>
-                    <span class="text-sm font-bold" id="strengthText">Medium</span>
-                </div>
-                <div class="h-2 bg-gray-700 rounded-full overflow-hidden">
-                    <div id="strengthBar" class="h-full w-1/2 strength-medium transition-all duration-500"></div>
-                </div>
-            </div>
-
-            <button onclick="generatePassword()" 
-                class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold py-4 rounded-2xl shadow-lg transform hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                Generate Password
-            </button>
-
-            <div class="mt-6 pt-6 border-t border-white/10">
-                <h3 class="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">Recent Passwords</h3>
-                <div id="historyList" class="space-y-2 max-h-32 overflow-y-auto"></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let history = JSON.parse(localStorage.getItem('passwordHistory') || '[]');
-        
-        function updateLength(val) {
-            document.getElementById('lengthValue').textContent = val;
-        }
-
-        function generatePassword() {
-            const length = parseInt(document.getElementById('lengthSlider').value);
-            const useUpper = document.getElementById('uppercase').checked;
-            const useLower = document.getElementById('lowercase').checked;
-            const useNumbers = document.getElementById('numbers').checked;
-            const useSymbols = document.getElementById('symbols').checked;
-
-            let chars = '';
-            if (useLower) chars += 'abcdefghijklmnopqrstuvwxyz';
-            if (useUpper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            if (useNumbers) chars += '0123456789';
-            if (useSymbols) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
-
-            if (chars === '') {
-                alert('Please select at least one character type');
-                return;
-            }
-
-            let password = '';
-            const array = new Uint32Array(length);
-            window.crypto.getRandomValues(array);
-            
-            for (let i = 0; i < length; i++) {
-                password += chars[array[i] % chars.length];
-            }
-
-            document.getElementById('passwordDisplay').textContent = password;
-            updateStrength(password);
-            
-            history.unshift(password);
-            if (history.length > 5) history.pop();
-            localStorage.setItem('passwordHistory', JSON.stringify(history));
-            renderHistory();
-        }
-
-        function updateStrength(password) {
-            let strength = 0;
-            if (password.length > 8) strength++;
-            if (password.length > 12) strength++;
-            if (/[A-Z]/.test(password)) strength++;
-            if (/[0-9]/.test(password)) strength++;
-            if (/[^A-Za-z0-9]/.test(password)) strength++;
-
-            const bar = document.getElementById('strengthBar');
-            const text = document.getElementById('strengthText');
-            
-            bar.className = 'h-full transition-all duration-500 ';
-            if (strength < 3) {
-                bar.classList.add('strength-weak');
-                bar.style.width = '33%';
-                text.textContent = 'Weak';
-                text.className = 'text-sm font-bold text-red-400';
-            } else if (strength < 5) {
-                bar.classList.add('strength-medium');
-                bar.style.width = '66%';
-                text.textContent = 'Medium';
-                text.className = 'text-sm font-bold text-yellow-400';
-            } else {
-                bar.classList.add('strength-strong');
-                bar.style.width = '100%';
-                text.textContent = 'Strong';
-                text.className = 'text-sm font-bold text-green-400';
-            }
-        }
-
-        function copyPassword() {
-            const pwd = document.getElementById('passwordDisplay').textContent;
-            if (pwd === 'Click Generate') return;
-            navigator.clipboard.writeText(pwd).then(() => {
-                const btn = document.querySelector('button[title="Copy"]');
-                btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-                setTimeout(() => {
-                    btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>';
-                }, 2000);
-            });
-        }
-
-        function renderHistory() {
-            const list = document.getElementById('historyList');
-            list.innerHTML = history.map((pwd, i) => \`
-                <div class="flex justify-between items-center p-2 rounded-lg bg-white/5 text-sm">
-                    <span class="mono text-gray-300 truncate flex-1 mr-2">\${pwd}</span>
-                    <button onclick="navigator.clipboard.writeText('\${pwd}')" class="text-purple-400 hover:text-purple-300">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                    </button>
-                </div>
-            \`).join('');
-        }
-
-        renderHistory();
-        generatePassword();
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generateMarkdownApp(query) {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Markdown Editor</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        .editor-bg { background: #1e1e1e; }
-        .preview-bg { background: #ffffff; }
-        
-        /* Markdown Styles */
-        .markdown-body h1 { font-size: 2em; font-weight: bold; margin-bottom: 0.5em; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.3em; }
-        .markdown-body h2 { font-size: 1.5em; font-weight: bold; margin-top: 1em; margin-bottom: 0.5em; }
-        .markdown-body h3 { font-size: 1.25em; font-weight: bold; margin-top: 1em; margin-bottom: 0.5em; }
-        .markdown-body p { margin-bottom: 1em; line-height: 1.6; }
-        .markdown-body ul { list-style-type: disc; padding-left: 2em; margin-bottom: 1em; }
-        .markdown-body ol { list-style-type: decimal; padding-left: 2em; margin-bottom: 1em; }
-        .markdown-body code { background: #f3f4f6; padding: 0.2em 0.4em; border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
-        .markdown-body pre { background: #1f2937; color: #f9fafb; padding: 1em; border-radius: 8px; overflow-x: auto; margin-bottom: 1em; }
-        .markdown-body pre code { background: none; padding: 0; color: inherit; }
-        .markdown-body blockquote { border-left: 4px solid #e5e7eb; padding-left: 1em; margin-left: 0; font-style: italic; color: #6b7280; }
-        .markdown-body table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
-        .markdown-body th, .markdown-body td { border: 1px solid #e5e7eb; padding: 0.5em; text-align: left; }
-        .markdown-body th { background: #f9fafb; font-weight: 600; }
-        .markdown-body a { color: #3b82f6; text-decoration: underline; }
-        .markdown-body img { max-width: 100%; height: auto; border-radius: 8px; }
-    </style>
-</head>
-<body class="bg-gray-900 h-screen flex flex-col overflow-hidden">
-    <!-- Header -->
-    <header class="bg-gray-800 border-b border-gray-700 px-4 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-            </div>
-            <h1 class="text-white font-bold text-lg">Markdown Editor</h1>
-        </div>
-        <div class="flex items-center gap-2">
-            <button onclick="insertTemplate()" class="px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 text-sm transition-colors">
-                Template
-            </button>
-            <button onclick="downloadMarkdown()" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-sm transition-colors flex items-center gap-2">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                Export
-            </button>
-            <button onclick="copyMarkdown()" class="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm transition-colors">
-                Copy
-            </button>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="flex-1 flex overflow-hidden">
-        <!-- Editor -->
-        <div class="flex-1 flex flex-col border-r border-gray-700">
-            <div class="bg-gray-800 px-4 py-2 text-xs text-gray-400 uppercase tracking-wider font-semibold flex justify-between items-center">
-                <span>Editor</span>
-                <span id="wordCount">0 words</span>
-            </div>
-            <textarea 
-                id="editor" 
-                class="flex-1 editor-bg text-gray-300 mono p-6 resize-none focus:outline-none text-sm leading-relaxed"
-                placeholder="# Start writing your markdown here...
-
-## Features:
-- **Bold** and *italic* text
-- Lists and checkboxes
-- [Links](https://example.com)
-- \`inline code\` and code blocks
-- Tables and quotes"
-                oninput="updatePreview()"
-            ></textarea>
-        </div>
-
-        <!-- Preview -->
-        <div class="flex-1 flex flex-col bg-white">
-            <div class="bg-gray-100 px-4 py-2 text-xs text-gray-600 uppercase tracking-wider font-semibold border-b border-gray-200">
-                Preview
-            </div>
-            <div id="preview" class="flex-1 preview-bg p-6 overflow-y-auto markdown-body text-gray-800">
-            </div>
-        </div>
-    </div>
-
-    <!-- Toolbar -->
-    <div class="bg-gray-800 border-t border-gray-700 px-4 py-2 flex items-center gap-2 overflow-x-auto">
-        <button onclick="insertText('**', '**')" class="p-2 rounded hover:bg-gray-700 text-gray-300 font-bold" title="Bold">B</button>
-        <button onclick="insertText('*', '*')" class="p-2 rounded hover:bg-gray-700 text-gray-300 italic" title="Italic">I</button>
-        <button onclick="insertText('# ')" class="p-2 rounded hover:bg-gray-700 text-gray-300" title="Heading">H1</button>
-        <button onclick="insertText('## ')" class="p-2 rounded hover:bg-gray-700 text-gray-300" title="Subheading">H2</button>
-        <button onclick="insertText('- ')" class="p-2 rounded hover:bg-gray-700 text-gray-300" title="List">•</button>
-        <button onclick="insertText('1. ')" class="p-2 rounded hover:bg-gray-700 text-gray-300" title="Numbered List">1.</button>
-        <button onclick="insertText('[', '](url)')" class="p-2 rounded hover:bg-gray-700 text-gray-300" title="Link">🔗</button>
-        <button onclick="insertText('\`\`\`\\n', '\\n\`\`\`')" class="p-2 rounded hover:bg-gray-700 text-gray-300 mono text-xs" title="Code Block">{ }</button>
-        <button onclick="insertText('> ')" class="p-2 rounded hover:bg-gray-700 text-gray-300" title="Quote">"</button>
-        <button onclick="insertText('---\\n')" class="p-2 rounded hover:bg-gray-700 text-gray-300" title="Horizontal Rule">—</button>
-        <div class="w-px h-6 bg-gray-600 mx-2"></div>
-        <button onclick="clearEditor()" class="p-2 rounded hover:bg-red-900/50 text-red-400 text-sm" title="Clear">Clear</button>
-    </div>
-
-    <script>
-        const editor = document.getElementById('editor');
-        const preview = document.getElementById('preview');
-        
-        // Load saved content
-        const saved = localStorage.getItem('markdownContent');
-        if (saved) {
-            editor.value = saved;
-            updatePreview();
-        } else {
-            // Set default template
-            editor.value = \`# Welcome to Markdown Editor
-
-## Getting Started
-This is a **live preview** markdown editor. Everything you type on the left appears instantly on the right.
-
-### Features:
-- *Real-time preview*
-- **Keyboard shortcuts** (try Ctrl+B for bold)
-- Syntax highlighting for code
-- Auto-save to browser storage
-
-## Code Example
-\\\`\\\`\\\`javascript
-function hello() {
-    console.log("Hello, World!");
-}
-\\\`\\\`\\\`
-
-## Table Example
-| Feature | Status |
-|---------|--------|
-| Editing | ✅ |
-| Preview | ✅ |
-| Export | ✅ |
-
-> Start typing to edit this document...\`;
-            updatePreview();
-        }
-
-        function updatePreview() {
-            const content = editor.value;
-            localStorage.setItem('markdownContent', content);
-            preview.innerHTML = marked.parse(content);
-            
-            // Update word count
-            const words = content.trim().split(/\\s+/).filter(w => w.length > 0).length;
-            document.getElementById('wordCount').textContent = words + ' words';
-        }
-
-        function insertText(before, after = '') {
-            const start = editor.selectionStart;
-            const end = editor.selectionEnd;
-            const text = editor.value;
-            const selection = text.substring(start, end);
-            
-            editor.value = text.substring(0, start) + before + selection + after + text.substring(end);
-            editor.focus();
-            editor.selectionStart = start + before.length;
-            editor.selectionEnd = start + before.length + selection.length;
-            updatePreview();
-        }
-
-        function insertTemplate() {
-            editor.value = \`# Project Title
-
-## Overview
-Brief description of your project.
-
-## Installation
-\\\`\\\`\\\`bash
-npm install
-npm start
-\\\`\\\`\\\`
-
-## Usage
-Explain how to use this project.
-
-## Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-
-## License
-MIT © 2024\`;
-            updatePreview();
-        }
-
-        function downloadMarkdown() {
-            const blob = new Blob([editor.value], { type: 'text/markdown' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'document.md';
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function copyMarkdown() {
-            navigator.clipboard.writeText(editor.value).then(() => {
-                alert('Copied to clipboard!');
-            });
-        }
-
-        function clearEditor() {
-            if (confirm('Clear all content?')) {
-                editor.value = '';
-                updatePreview();
-            }
-        }
-
-        // Keyboard shortcuts
-        editor.addEventListener('keydown', (e) => {
-            if (e.ctrlKey || e.metaKey) {
-                switch(e.key) {
-                    case 'b':
-                        e.preventDefault();
-                        insertText('**', '**');
-                        break;
-                    case 'i':
-                        e.preventDefault();
-                        insertText('*', '*');
-                        break;
-                    case 's':
-                        e.preventDefault();
-                        downloadMarkdown();
-                        break;
-                }
-            }
-        });
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generatePomodoroApp(query) {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Pomodoro Timer</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        
-        .timer-circle {
-            background: conic-gradient(from 0deg, #6366f1 var(--progress), transparent var(--progress));
-            border-radius: 50%;
-            transition: --progress 0.1s linear;
-        }
-        
-        @property --progress {
-            syntax: '<percentage>';
-            inherits: false;
-            initial-value: 0%;
-        }
-        
-        .breathing {
-            animation: breathe 4s ease-in-out infinite;
-        }
-        
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 min-h-screen text-white overflow-x-hidden">
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
-        
-        <!-- Header -->
-        <header class="text-center mb-8">
-            <h1 class="text-4xl font-bold mb-2">🍅 Pomodoro Focus</h1>
-            <p class="text-indigo-200">Stay productive with timed work sessions</p>
-        </header>
-
-        <div class="grid md:grid-cols-3 gap-6">
-            
-            <!-- Timer Section -->
-            <div class="md:col-span-2">
-                <div class="glass rounded-3xl p-8 text-center relative overflow-hidden">
-                    <!-- Mode Toggle -->
-                    <div class="flex justify-center gap-2 mb-8">
-                        <button onclick="setMode('work')" id="btn-work" class="px-4 py-2 rounded-full bg-indigo-600 text-white font-medium transition-all">Work</button>
-                        <button onclick="setMode('short')" id="btn-short" class="px-4 py-2 rounded-full bg-white/10 text-white/70 hover:bg-white/20 font-medium transition-all">Short Break</button>
-                        <button onclick="setMode('long')" id="btn-long" class="px-4 py-2 rounded-full bg-white/10 text-white/70 hover:bg-white/20 font-medium transition-all">Long Break</button>
-                    </div>
-
-                    <!-- Timer Display -->
-                    <div class="relative w-64 h-64 mx-auto mb-8">
-                        <div id="timerCircle" class="absolute inset-0 rounded-full timer-circle" style="--progress: 0%"></div>
-                        <div class="absolute inset-2 bg-slate-900 rounded-full flex items-center justify-center breathing">
-                            <div>
-                                <div id="timerDisplay" class="text-6xl font-bold tabular-nums">25:00</div>
-                                <div id="timerLabel" class="text-indigo-300 mt-2 font-medium">Focus Time</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Controls -->
-                    <div class="flex justify-center gap-4">
-                        <button onclick="toggleTimer()" id="mainBtn" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-3 rounded-full font-bold text-lg transition-all transform hover:scale-105 flex items-center gap-2">
-                            <svg id="playIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <span id="btnText">Start</span>
-                        </button>
-                        <button onclick="resetTimer()" class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition-all">
-                            Reset
-                        </button>
-                        <button onclick="skipSession()" class="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition-all">
-                            Skip
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats Section -->
-            <div class="space-y-4">
-                <div class="glass rounded-2xl p-6">
-                    <h3 class="font-bold text-lg mb-4">Today's Stats</h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between">
-                            <span class="text-indigo-200">Sessions</span>
-                            <span class="font-bold" id="sessionsCount">0</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-indigo-200">Focus Time</span>
-                            <span class="font-bold" id="focusTime">0m</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-indigo-200">Breaks</span>
-                            <span class="font-bold" id="breaksCount">0</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl p-6">
-                    <h3 class="font-bold text-lg mb-4">Settings</h3>
-                    <div class="space-y-3 text-sm">
-                        <div>
-                            <label class="text-indigo-200 block mb-1">Work (min)</label>
-                            <input type="number" id="workTime" value="25" min="1" max="60" onchange="updateSettings()"
-                                class="w-full bg-white/10 rounded-lg px-3 py-2 text-white border border-white/20 focus:outline-none focus:border-indigo-400">
-                        </div>
-                        <div>
-                            <label class="text-indigo-200 block mb-1">Short Break (min)</label>
-                            <input type="number" id="shortTime" value="5" min="1" max="30" onchange="updateSettings()"
-                                class="w-full bg-white/10 rounded-lg px-3 py-2 text-white border border-white/20 focus:outline-none focus:border-indigo-400">
-                        </div>
-                        <div>
-                            <label class="text-indigo-200 block mb-1">Long Break (min)</label>
-                            <input type="number" id="longTime" value="15" min="1" max="60" onchange="updateSettings()"
-                                class="w-full bg-white/10 rounded-lg px-3 py-2 text-white border border-white/20 focus:outline-none focus:border-indigo-400">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let timerInterval = null;
-        let currentMode = 'work';
-        let timeLeft = 25 * 60;
-        let totalTime = 25 * 60;
-        let isRunning = false;
-        let sessions = 0;
-        let breaks = 0;
-        let totalFocusSeconds = 0;
-
-        const modes = {
-            work: { label: 'Focus Time', color: '#6366f1' },
-            short: { label: 'Short Break', color: '#10b981' },
-            long: { label: 'Long Break', color: '#3b82f6' }
-        };
-
-        function getSettings() {
-            return {
-                work: parseInt(document.getElementById('workTime').value) * 60,
-                short: parseInt(document.getElementById('shortTime').value) * 60,
-                long: parseInt(document.getElementById('longTime').value) * 60
-            };
-        }
-
-        function updateSettings() {
-            if (!isRunning) {
-                const s = getSettings();
-                timeLeft = s[currentMode];
-                totalTime = s[currentMode];
-                updateDisplay();
-            }
-        }
-
-        function setMode(mode) {
-            currentMode = mode;
-            clearInterval(timerInterval);
-            isRunning = false;
-            const s = getSettings();
-            timeLeft = s[mode];
-            totalTime = s[mode];
-
-            ['work','short','long'].forEach(m => {
-                const btn = document.getElementById('btn-' + m);
-                btn.className = m === mode
-                    ? 'px-4 py-2 rounded-full bg-indigo-600 text-white font-medium transition-all'
-                    : 'px-4 py-2 rounded-full bg-white/10 text-white/70 hover:bg-white/20 font-medium transition-all';
-            });
-
-            document.getElementById('timerLabel').textContent = modes[mode].label;
-            document.getElementById('btnText').textContent = 'Start';
-            updateDisplay();
-        }
-
-        function toggleTimer() {
-            if (isRunning) {
-                clearInterval(timerInterval);
-                isRunning = false;
-                document.getElementById('btnText').textContent = 'Resume';
-            } else {
-                isRunning = true;
-                document.getElementById('btnText').textContent = 'Pause';
-                timerInterval = setInterval(() => {
-                    if (currentMode === 'work') totalFocusSeconds++;
-                    timeLeft--;
-                    updateDisplay();
-                    if (timeLeft <= 0) {
-                        clearInterval(timerInterval);
-                        isRunning = false;
-                        handleSessionEnd();
-                    }
-                }, 1000);
-            }
-        }
-
-        function resetTimer() {
-            clearInterval(timerInterval);
-            isRunning = false;
-            const s = getSettings();
-            timeLeft = s[currentMode];
-            totalTime = s[currentMode];
-            document.getElementById('btnText').textContent = 'Start';
-            updateDisplay();
-        }
-
-        function skipSession() {
-            clearInterval(timerInterval);
-            isRunning = false;
-            handleSessionEnd();
-        }
-
-        function handleSessionEnd() {
-            if (currentMode === 'work') {
-                sessions++;
-                document.getElementById('sessionsCount').textContent = sessions;
-                document.getElementById('focusTime').textContent = Math.round(totalFocusSeconds / 60) + 'm';
-                setMode(sessions % 4 === 0 ? 'long' : 'short');
-            } else {
-                breaks++;
-                document.getElementById('breaksCount').textContent = breaks;
-                setMode('work');
-            }
-            document.getElementById('btnText').textContent = 'Start';
-        }
-
-        function updateDisplay() {
-            const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
-            const secs = (timeLeft % 60).toString().padStart(2, '0');
-            document.getElementById('timerDisplay').textContent = mins + ':' + secs;
-            const progress = ((totalTime - timeLeft) / totalTime * 100).toFixed(1) + '%';
-            document.getElementById('timerCircle').style.setProperty('--progress', progress);
-            document.title = mins + ':' + secs + ' | Pomodoro Focus';
-        }
-
-        updateDisplay();
-    <\/script>
-</body>
-</html>\`;
-        }
-
-        function generateWeatherApp(query) {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .weather-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .spin-slow { animation: spin-slow 10s linear infinite; }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-blue-900 to-indigo-900 min-h-screen p-4 text-white">
-    <div class="max-w-2xl mx-auto">
-        <div class="text-center mb-8 pt-8">
-            <h1 class="text-4xl font-bold mb-2">🌤 Weather Dashboard</h1>
-            <p class="text-blue-200">Search for any city's weather</p>
-        </div>
-
-        <div class="flex gap-2 mb-6">
-            <input type="text" id="cityInput" placeholder="Enter city name..."
-                class="flex-1 px-5 py-3 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:border-white text-lg"
-                onkeypress="if(event.key==='Enter') searchWeather()">
-            <button onclick="searchWeather()" class="bg-blue-500 hover:bg-blue-400 px-6 py-3 rounded-2xl font-bold transition-all">Search</button>
-        </div>
-
-        <div id="weatherResult" class="hidden">
-            <div class="weather-card rounded-3xl p-8 mb-4 shadow-2xl">
-                <div class="flex justify-between items-start mb-6">
-                    <div>
-                        <h2 class="text-3xl font-bold" id="cityName">City</h2>
-                        <p class="text-blue-200 text-lg" id="countryName">Country</p>
-                        <p class="text-blue-100 mt-1" id="weatherDesc">Clear sky</p>
-                    </div>
-                    <div class="text-8xl spin-slow" id="weatherIcon">☀️</div>
-                </div>
-                <div class="text-8xl font-thin mb-4" id="tempDisplay">22°C</div>
-                <div class="grid grid-cols-3 gap-4 mt-6 border-t border-white/20 pt-6">
-                    <div class="text-center">
-                        <div class="text-2xl mb-1">💧</div>
-                        <div class="text-2xl font-bold" id="humidity">60%</div>
-                        <div class="text-blue-200 text-sm">Humidity</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-2xl mb-1">💨</div>
-                        <div class="text-2xl font-bold" id="windSpeed">12 km/h</div>
-                        <div class="text-blue-200 text-sm">Wind</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-2xl mb-1">👁</div>
-                        <div class="text-2xl font-bold" id="visibility">10 km</div>
-                        <div class="text-blue-200 text-sm">Visibility</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-5 gap-2">
-                <div class="bg-white/10 rounded-2xl p-4 text-center" id="forecast-0"></div>
-                <div class="bg-white/10 rounded-2xl p-4 text-center" id="forecast-1"></div>
-                <div class="bg-white/10 rounded-2xl p-4 text-center" id="forecast-2"></div>
-                <div class="bg-white/10 rounded-2xl p-4 text-center" id="forecast-3"></div>
-                <div class="bg-white/10 rounded-2xl p-4 text-center" id="forecast-4"></div>
-            </div>
-        </div>
-
-        <div id="noResult" class="hidden text-center py-12 text-blue-200">
-            <div class="text-6xl mb-4">🌍</div>
-            <p class="text-xl">City not found. Try another name.</p>
-        </div>
-    </div>
-
-    <script>
-        const weatherData = {
-            'london': { name: 'London', country: 'UK', temp: 14, desc: 'Partly Cloudy', icon: '⛅', humidity: 72, wind: '18 km/h', visibility: '8 km' },
-            'new york': { name: 'New York', country: 'USA', temp: 22, desc: 'Sunny', icon: '☀️', humidity: 58, wind: '12 km/h', visibility: '15 km' },
-            'tokyo': { name: 'Tokyo', country: 'Japan', temp: 18, desc: 'Light Rain', icon: '🌧', humidity: 80, wind: '8 km/h', visibility: '5 km' },
-            'paris': { name: 'Paris', country: 'France', temp: 16, desc: 'Overcast', icon: '🌥', humidity: 65, wind: '14 km/h', visibility: '10 km' },
-            'sydney': { name: 'Sydney', country: 'Australia', temp: 25, desc: 'Clear Sky', icon: '☀️', humidity: 55, wind: '20 km/h', visibility: '20 km' },
-            'dubai': { name: 'Dubai', country: 'UAE', temp: 38, desc: 'Hot & Sunny', icon: '🌞', humidity: 45, wind: '10 km/h', visibility: '18 km' },
-            'moscow': { name: 'Moscow', country: 'Russia', temp: -2, desc: 'Snowy', icon: '❄️', humidity: 85, wind: '22 km/h', visibility: '3 km' },
-            'mumbai': { name: 'Mumbai', country: 'India', temp: 32, desc: 'Humid', icon: '🌤', humidity: 88, wind: '15 km/h', visibility: '7 km' },
-        };
-
-        const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-        const icons = ['☀️','⛅','🌧','🌤','🌥'];
-
-        function searchWeather() {
-            const city = document.getElementById('cityInput').value.trim().toLowerCase();
-            const data = weatherData[city] || generateRandom(city);
-            if (!city) return;
-            showWeather(data);
-        }
-
-        function generateRandom(city) {
-            const temps = [5,10,15,20,25,30];
-            const descs = ['Sunny','Cloudy','Partly Cloudy','Light Rain','Clear Sky','Windy'];
-            const weatherIcons = ['☀️','⛅','🌧','🌤','🌥','💨'];
-            const i = Math.floor(Math.random() * descs.length);
-            return {
-                name: city.charAt(0).toUpperCase() + city.slice(1),
-                country: '—',
-                temp: temps[Math.floor(Math.random() * temps.length)],
-                desc: descs[i],
-                icon: weatherIcons[i],
-                humidity: Math.floor(Math.random() * 40 + 40) + '%',
-                wind: Math.floor(Math.random() * 25 + 5) + ' km/h',
-                visibility: Math.floor(Math.random() * 15 + 5) + ' km'
-            };
-        }
-
-        function showWeather(data) {
-            document.getElementById('weatherResult').classList.remove('hidden');
-            document.getElementById('noResult').classList.add('hidden');
-            document.getElementById('cityName').textContent = data.name;
-            document.getElementById('countryName').textContent = data.country;
-            document.getElementById('weatherDesc').textContent = data.desc;
-            document.getElementById('weatherIcon').textContent = data.icon;
-            document.getElementById('tempDisplay').textContent = data.temp + '°C';
-            document.getElementById('humidity').textContent = data.humidity;
-            document.getElementById('windSpeed').textContent = data.wind;
-            document.getElementById('visibility').textContent = data.visibility;
-
-            const today = new Date();
-            for (let i = 0; i < 5; i++) {
-                const d = new Date(today);
-                d.setDate(d.getDate() + i + 1);
-                const t = Math.round(data.temp + (Math.random() * 6 - 3));
-                document.getElementById('forecast-' + i).innerHTML =
-                    '<div class="text-xs text-blue-200 mb-1">' + days[d.getDay()] + '</div>' +
-                    '<div class="text-2xl my-1">' + icons[Math.floor(Math.random() * icons.length)] + '</div>' +
-                    '<div class="font-bold">' + t + '°</div>';
-            }
-        }
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generateNotesApp(query) {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes App</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .note-card:hover .delete-btn { opacity: 1; }
-    </style>
-</head>
-<body class="bg-amber-50 min-h-screen">
-    <div class="max-w-5xl mx-auto p-6">
-        <header class="mb-8 flex justify-between items-center">
-            <div>
-                <h1 class="text-4xl font-bold text-amber-900">📝 My Notes</h1>
-                <p class="text-amber-600 mt-1" id="noteCount">0 notes</p>
-            </div>
-            <button onclick="openModal()" class="bg-amber-500 hover:bg-amber-400 text-white px-6 py-3 rounded-2xl font-semibold shadow-lg transition-all hover:scale-105">
-                + New Note
-            </button>
-        </header>
-
-        <input type="text" id="searchNotes" placeholder="Search notes..."
-            class="w-full mb-6 px-5 py-3 rounded-2xl border-2 border-amber-200 bg-white focus:border-amber-400 focus:outline-none text-gray-700"
-            oninput="renderNotes()">
-
-        <div id="notesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-    </div>
-
-    <!-- Modal -->
-    <div id="modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-3xl p-6 w-full max-w-lg shadow-2xl">
-            <h2 class="text-xl font-bold text-gray-800 mb-4" id="modalTitle">New Note</h2>
-            <input type="text" id="noteTitle" placeholder="Title..." class="w-full px-4 py-3 mb-3 rounded-xl border-2 border-gray-200 focus:border-amber-400 focus:outline-none text-lg font-medium">
-            <textarea id="noteContent" placeholder="Write your note..." rows="6"
-                class="w-full px-4 py-3 mb-3 rounded-xl border-2 border-gray-200 focus:border-amber-400 focus:outline-none resize-none"></textarea>
-            <div class="flex gap-2 mb-4">
-                <span class="text-sm text-gray-500">Color:</span>
-                <button onclick="setColor('bg-yellow-100')" class="w-6 h-6 rounded-full bg-yellow-100 border-2 border-yellow-300 hover:scale-110 transition-all"></button>
-                <button onclick="setColor('bg-pink-100')" class="w-6 h-6 rounded-full bg-pink-100 border-2 border-pink-300 hover:scale-110 transition-all"></button>
-                <button onclick="setColor('bg-blue-100')" class="w-6 h-6 rounded-full bg-blue-100 border-2 border-blue-300 hover:scale-110 transition-all"></button>
-                <button onclick="setColor('bg-green-100')" class="w-6 h-6 rounded-full bg-green-100 border-2 border-green-300 hover:scale-110 transition-all"></button>
-                <button onclick="setColor('bg-purple-100')" class="w-6 h-6 rounded-full bg-purple-100 border-2 border-purple-300 hover:scale-110 transition-all"></button>
-            </div>
-            <div class="flex gap-3">
-                <button onclick="saveNote()" class="flex-1 bg-amber-500 hover:bg-amber-400 text-white py-3 rounded-xl font-semibold transition-all">Save</button>
-                <button onclick="closeModal()" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold transition-all">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let notes = JSON.parse(localStorage.getItem('notes') || '[]');
-        let editId = null;
-        let selectedColor = 'bg-yellow-100';
-
-        function setColor(c) { selectedColor = c; }
-
-        function openModal(id = null) {
-            editId = id;
-            if (id !== null) {
-                const note = notes.find(n => n.id === id);
-                document.getElementById('noteTitle').value = note.title;
-                document.getElementById('noteContent').value = note.content;
-                selectedColor = note.color;
-                document.getElementById('modalTitle').textContent = 'Edit Note';
-            } else {
-                document.getElementById('noteTitle').value = '';
-                document.getElementById('noteContent').value = '';
-                selectedColor = 'bg-yellow-100';
-                document.getElementById('modalTitle').textContent = 'New Note';
-            }
-            document.getElementById('modal').classList.remove('hidden');
-        }
-
-        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
-
-        function saveNote() {
-            const title = document.getElementById('noteTitle').value.trim();
-            const content = document.getElementById('noteContent').value.trim();
-            if (!title && !content) return;
-            if (editId !== null) {
-                const note = notes.find(n => n.id === editId);
-                note.title = title; note.content = content; note.color = selectedColor;
-                note.updated = Date.now();
-            } else {
-                notes.unshift({ id: Date.now(), title, content, color: selectedColor, created: Date.now(), updated: Date.now() });
-            }
-            localStorage.setItem('notes', JSON.stringify(notes));
-            closeModal();
-            renderNotes();
-        }
-
-        function deleteNote(id) {
-            if (!confirm('Delete this note?')) return;
-            notes = notes.filter(n => n.id !== id);
-            localStorage.setItem('notes', JSON.stringify(notes));
-            renderNotes();
-        }
-
-        function renderNotes() {
-            const q = document.getElementById('searchNotes').value.toLowerCase();
-            const filtered = q ? notes.filter(n => n.title.toLowerCase().includes(q) || n.content.toLowerCase().includes(q)) : notes;
-            document.getElementById('noteCount').textContent = notes.length + ' note' + (notes.length !== 1 ? 's' : '');
-            const grid = document.getElementById('notesGrid');
-            if (!filtered.length) {
-                grid.innerHTML = '<div class="col-span-3 text-center py-16 text-amber-400"><div class="text-6xl mb-4">📭</div><p class="text-xl">No notes yet. Create one!</p></div>';
-                return;
-            }
-            grid.innerHTML = filtered.map(n => `
-                <div class="note-card ${n.color} rounded-2xl p-5 shadow-md hover:shadow-lg transition-all cursor-pointer relative group" onclick="openModal(${n.id})">
-                    <button class="delete-btn absolute top-3 right-3 opacity-0 transition-all bg-red-500 text-white w-7 h-7 rounded-full text-xs hover:bg-red-600"
-                        onclick="event.stopPropagation(); deleteNote(${n.id})">✕</button>
-                    <h3 class="font-bold text-gray-800 text-lg mb-2 pr-8">${n.title || 'Untitled'}</h3>
-                    <p class="text-gray-600 text-sm line-clamp-4">${n.content}</p>
-                    <p class="text-gray-400 text-xs mt-3">${new Date(n.updated).toLocaleDateString()}</p>
-                </div>
-            `).join('');
-        }
-
-        renderNotes();
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generateDrawingApp(query) {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drawing Canvas</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-</head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
-    <div class="flex items-center gap-3 p-3 bg-gray-800 border-b border-gray-700 flex-wrap">
-        <span class="font-bold text-purple-400 text-lg">🎨 Draw</span>
-        <div class="flex gap-1">
-            <button onclick="setTool('pen')" id="tool-pen" class="px-3 py-1.5 rounded-lg bg-purple-600 text-sm font-medium">✏️ Pen</button>
-            <button onclick="setTool('eraser')" id="tool-eraser" class="px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-sm font-medium">⬜ Eraser</button>
-            <button onclick="setTool('line')" id="tool-line" class="px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-sm font-medium">/ Line</button>
-            <button onclick="setTool('rect')" id="tool-rect" class="px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-sm font-medium">▭ Rect</button>
-            <button onclick="setTool('circle')" id="tool-circle" class="px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-sm font-medium">○ Circle</button>
-        </div>
-        <input type="color" id="colorPicker" value="#ffffff" class="w-8 h-8 rounded cursor-pointer border-0 bg-transparent">
-        <div class="flex items-center gap-2">
-            <span class="text-xs text-gray-400">Size:</span>
-            <input type="range" id="brushSize" min="1" max="50" value="4" class="w-20 accent-purple-500">
-            <span id="sizeVal" class="text-sm w-6">4</span>
-        </div>
-        <div class="flex gap-1 ml-auto">
-            <button onclick="undo()" class="px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-sm">↩ Undo</button>
-            <button onclick="clearCanvas()" class="px-3 py-1.5 rounded-lg bg-red-700 hover:bg-red-600 text-sm">🗑 Clear</button>
-            <button onclick="downloadCanvas()" class="px-3 py-1.5 rounded-lg bg-green-700 hover:bg-green-600 text-sm">💾 Save</button>
-        </div>
-    </div>
-    <canvas id="canvas" class="flex-1 cursor-crosshair" style="background:#1a1a2e"></canvas>
-
-    <script>
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        let drawing = false, tool = 'pen', history = [];
-        let startX, startY, snapshot;
-
-        document.getElementById('brushSize').oninput = e => document.getElementById('sizeVal').textContent = e.target.value;
-
-        function resize() {
-            const img = canvas.toDataURL();
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-            const i = new Image(); i.onload = () => ctx.drawImage(i, 0, 0); i.src = img;
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        function setTool(t) {
-            tool = t;
-            document.querySelectorAll('[id^="tool-"]').forEach(b => b.className = 'px-3 py-1.5 rounded-lg bg-gray-700 hover:bg-gray-600 text-sm font-medium');
-            document.getElementById('tool-' + t).className = 'px-3 py-1.5 rounded-lg bg-purple-600 text-sm font-medium';
-        }
-
-        function getPos(e) {
-            const r = canvas.getBoundingClientRect();
-            if (e.touches) return { x: e.touches[0].clientX - r.left, y: e.touches[0].clientY - r.top };
-            return { x: e.clientX - r.left, y: e.clientY - r.top };
-        }
-
-        canvas.addEventListener('mousedown', start);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', end);
-        canvas.addEventListener('touchstart', e => { e.preventDefault(); start(e); }, { passive: false });
-        canvas.addEventListener('touchmove', e => { e.preventDefault(); draw(e); }, { passive: false });
-        canvas.addEventListener('touchend', end);
-
-        function start(e) {
-            drawing = true;
-            const p = getPos(e);
-            startX = p.x; startY = p.y;
-            snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            ctx.beginPath(); ctx.moveTo(p.x, p.y);
-        }
-
-        function draw(e) {
-            if (!drawing) return;
-            const p = getPos(e);
-            const color = document.getElementById('colorPicker').value;
-            const size = parseInt(document.getElementById('brushSize').value);
-            ctx.lineWidth = size; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-
-            if (tool === 'pen') {
-                ctx.strokeStyle = color; ctx.globalCompositeOperation = 'source-over';
-                ctx.lineTo(p.x, p.y); ctx.stroke();
-            } else if (tool === 'eraser') {
-                ctx.strokeStyle = '#1a1a2e'; ctx.globalCompositeOperation = 'source-over';
-                ctx.lineTo(p.x, p.y); ctx.stroke();
-            } else {
-                ctx.putImageData(snapshot, 0, 0);
-                ctx.strokeStyle = color; ctx.globalCompositeOperation = 'source-over';
-                ctx.beginPath();
-                if (tool === 'line') { ctx.moveTo(startX, startY); ctx.lineTo(p.x, p.y); }
-                else if (tool === 'rect') { ctx.rect(startX, startY, p.x - startX, p.y - startY); }
-                else if (tool === 'circle') {
-                    const r = Math.sqrt(Math.pow(p.x - startX, 2) + Math.pow(p.y - startY, 2));
-                    ctx.arc(startX, startY, r, 0, 2 * Math.PI);
-                }
-                ctx.stroke();
-            }
-        }
-
-        function end() {
-            if (!drawing) return;
-            drawing = false;
-            history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
-            if (history.length > 20) history.shift();
-        }
-
-        function undo() {
-            if (history.length > 1) { history.pop(); ctx.putImageData(history[history.length - 1], 0, 0); }
-            else { ctx.clearRect(0, 0, canvas.width, canvas.height); history = []; }
-        }
-
-        function clearCanvas() { ctx.clearRect(0, 0, canvas.width, canvas.height); history = []; }
-
-        function downloadCanvas() {
-            const a = document.createElement('a'); a.download = 'drawing.png'; a.href = canvas.toDataURL(); a.click();
-        }
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generateMusicPlayerApp(query) {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .playing .vinyl { animation: spin 3s linear infinite; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #a78bfa; cursor: pointer; }
-        input[type=range] { -webkit-appearance: none; height: 4px; background: rgba(255,255,255,0.2); border-radius: 4px; }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-sm">
-        <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20">
-            <div class="text-center mb-6">
-                <div class="w-48 h-48 mx-auto mb-4 relative">
-                    <div class="vinyl w-full h-full rounded-full bg-gradient-to-br from-purple-800 to-gray-900 flex items-center justify-center shadow-2xl border-4 border-purple-500/30">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-4xl" id="albumArt">🎵</div>
-                    </div>
-                </div>
-                <h2 class="text-white text-xl font-bold" id="songTitle">Select a Track</h2>
-                <p class="text-purple-300 text-sm mt-1" id="artistName">—</p>
-            </div>
-
-            <div class="mb-4">
-                <input type="range" id="progressBar" min="0" max="100" value="0" class="w-full accent-purple-400" oninput="seek(this.value)">
-                <div class="flex justify-between text-xs text-gray-400 mt-1">
-                    <span id="currentTime">0:00</span>
-                    <span id="totalTime">0:00</span>
-                </div>
-            </div>
-
-            <div class="flex justify-center items-center gap-6 mb-6">
-                <button onclick="prevTrack()" class="text-purple-300 hover:text-white transition-all text-2xl">⏮</button>
-                <button onclick="togglePlay()" id="playBtn" class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 flex items-center justify-center text-2xl shadow-lg transition-all hover:scale-110">▶</button>
-                <button onclick="nextTrack()" class="text-purple-300 hover:text-white transition-all text-2xl">⏭</button>
-            </div>
-
-            <div class="flex items-center gap-2">
-                <span class="text-gray-400 text-sm">🔉</span>
-                <input type="range" id="volume" min="0" max="100" value="70" class="flex-1 accent-purple-400" oninput="setVolume(this.value)">
-                <span class="text-gray-400 text-sm">🔊</span>
-            </div>
-
-            <div class="mt-6 space-y-2 max-h-40 overflow-y-auto">
-                <p class="text-gray-400 text-xs uppercase tracking-wider mb-2">Playlist</p>
-                <div id="playlist"></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const tracks = [
-            { title: 'Midnight Vibes', artist: 'Synthwave Studio', art: '🌙', duration: 213 },
-            { title: 'Summer Breeze', artist: 'Chill Collective', art: '☀️', duration: 187 },
-            { title: 'Neon Dreams', artist: 'Electric Pulse', art: '⚡', duration: 245 },
-            { title: 'Ocean Drive', artist: 'Deep Blue', art: '🌊', duration: 198 },
-            { title: 'City Lights', artist: 'Urban Echo', art: '🏙', duration: 231 },
-        ];
-
-        let currentTrack = 0, playing = false, progress = 0, interval;
-
-        function formatTime(s) {
-            return Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
-        }
-
-        function loadTrack(i) {
-            currentTrack = i;
-            const t = tracks[i];
-            document.getElementById('songTitle').textContent = t.title;
-            document.getElementById('artistName').textContent = t.artist;
-            document.getElementById('albumArt').textContent = t.art;
-            document.getElementById('totalTime').textContent = formatTime(t.duration);
-            progress = 0;
-            document.getElementById('progressBar').value = 0;
-            document.getElementById('currentTime').textContent = '0:00';
-            renderPlaylist();
-        }
-
-        function togglePlay() {
-            playing = !playing;
-            document.getElementById('playBtn').textContent = playing ? '⏸' : '▶';
-            document.querySelector('.vinyl').parentElement.parentElement.parentElement.classList.toggle('playing', playing);
-            if (playing) {
-                interval = setInterval(() => {
-                    progress += 100 / tracks[currentTrack].duration;
-                    if (progress >= 100) { nextTrack(); return; }
-                    document.getElementById('progressBar').value = progress;
-                    document.getElementById('currentTime').textContent = formatTime(progress * tracks[currentTrack].duration / 100);
-                }, 1000);
-            } else clearInterval(interval);
-        }
-
-        function seek(val) { progress = parseFloat(val); document.getElementById('currentTime').textContent = formatTime(progress * tracks[currentTrack].duration / 100); }
-        function setVolume(v) { /* visual only */ }
-
-        function nextTrack() {
-            clearInterval(interval); playing = false;
-            loadTrack((currentTrack + 1) % tracks.length);
-            togglePlay();
-        }
-
-        function prevTrack() {
-            clearInterval(interval); playing = false;
-            loadTrack((currentTrack - 1 + tracks.length) % tracks.length);
-            togglePlay();
-        }
-
-        function renderPlaylist() {
-            document.getElementById('playlist').innerHTML = tracks.map((t, i) => `
-                <div onclick="clearInterval(interval); playing=false; loadTrack(${i}); togglePlay();"
-                    class="flex items-center gap-3 p-2 rounded-xl cursor-pointer transition-all ${i === currentTrack ? 'bg-purple-600/30 border border-purple-500/30' : 'hover:bg-white/5'}">
-                    <span class="text-xl">${t.art}</span>
-                    <div class="flex-1 min-w-0">
-                        <div class="text-white text-sm font-medium truncate">${t.title}</div>
-                        <div class="text-gray-400 text-xs">${t.artist}</div>
-                    </div>
-                    <span class="text-gray-400 text-xs">${formatTime(t.duration)}</span>
-                </div>
-            `).join('');
-        }
-
-        loadTrack(0);
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generateChatApp(query) {
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .message-in { animation: slideLeft 0.3s ease-out; }
-        .message-out { animation: slideRight 0.3s ease-out; }
-        @keyframes slideLeft { from { opacity:0; transform: translateX(-20px); } to { opacity:1; transform: translateX(0); } }
-        @keyframes slideRight { from { opacity:0; transform: translateX(20px); } to { opacity:1; transform: translateX(0); } }
-        #messages { scroll-behavior: smooth; }
-    </style>
-</head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
-    <header class="bg-gradient-to-r from-purple-700 to-indigo-700 text-white p-4 flex items-center gap-3 shadow-lg">
-        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-xl">🤖</div>
-        <div>
-            <div class="font-bold">AI Assistant</div>
-            <div class="text-xs text-purple-200 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-400 inline-block"></span>Online</div>
-        </div>
-    </header>
-
-    <div id="messages" class="flex-1 overflow-y-auto p-4 space-y-3 max-h-[calc(100vh-140px)]">
-        <div class="flex gap-2 message-in">
-            <div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center text-sm flex-shrink-0">🤖</div>
-            <div class="bg-white rounded-2xl rounded-tl-none px-4 py-3 max-w-xs shadow-sm">
-                <p class="text-gray-800">Hello! I'm your AI assistant. How can I help you today?</p>
-                <span class="text-xs text-gray-400 mt-1 block">just now</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="p-3 bg-white border-t border-gray-200 flex gap-2">
-        <input type="text" id="msgInput" placeholder="Type a message..."
-            class="flex-1 px-4 py-3 rounded-full border-2 border-gray-200 focus:border-purple-400 focus:outline-none text-gray-700"
-            onkeypress="if(event.key==='Enter') sendMessage()">
-        <button onclick="sendMessage()" class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white flex items-center justify-center hover:opacity-90 transition-all hover:scale-110 shadow-lg">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-        </button>
-    </div>
-
-    <script>
-        const replies = [
-            "That's interesting! Tell me more.",
-            "I understand. Here's what I think...",
-            "Great question! The answer depends on several factors.",
-            "Absolutely! I'd be happy to help with that.",
-            "I see what you mean. Let me think about this.",
-            "That's a fascinating perspective!",
-            "Sure thing! Here's what I know about that.",
-            "I'm processing your request. The short answer is: it depends!",
-        ];
-
-        function sendMessage() {
-            const input = document.getElementById('msgInput');
-            const text = input.value.trim();
-            if (!text) return;
-            addMessage(text, 'out');
-            input.value = '';
-            setTimeout(() => {
-                addMessage(replies[Math.floor(Math.random() * replies.length)], 'in');
-            }, 800 + Math.random() * 800);
-        }
-
-        function addMessage(text, dir) {
-            const messages = document.getElementById('messages');
-            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            const isIn = dir === 'in';
-            const el = document.createElement('div');
-            el.className = 'flex gap-2 message-' + dir + (isIn ? '' : ' justify-end');
-            el.innerHTML = isIn
-                ? `<div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center text-sm flex-shrink-0">🤖</div>
-                   <div class="bg-white rounded-2xl rounded-tl-none px-4 py-3 max-w-xs shadow-sm">
-                       <p class="text-gray-800">${text}</p><span class="text-xs text-gray-400 mt-1 block">${time}</span></div>`
-                : `<div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl rounded-tr-none px-4 py-3 max-w-xs shadow-sm">
-                       <p class="text-white">${text}</p><span class="text-xs text-purple-200 mt-1 block">${time}</span></div>`;
-            messages.appendChild(el);
-            messages.scrollTop = messages.scrollHeight;
-        }
-    <\/script>
-</body>
-</html>`;
-        }
-
-        function generateGenericApp(query) {
-            // For unrecognized queries, create a nice landing/utility page
-            const title = query.charAt(0).toUpperCase() + query.slice(1);
-            return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title}</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-slate-900 to-purple-900 min-h-screen text-white flex items-center justify-center p-4">
-    <div class="max-w-lg w-full text-center">
-        <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-10 border border-white/20 shadow-2xl">
-            <div class="text-6xl mb-6">✨</div>
-            <h1 class="text-3xl font-bold mb-3">${title}</h1>
-            <p class="text-gray-300 mb-8">Your custom AI-generated app is ready!</p>
-            <div class="bg-white/5 rounded-2xl p-6 text-left space-y-3 mb-6">
-                <div class="flex items-center gap-3"><span class="text-green-400">✓</span><span>Fully responsive design</span></div>
-                <div class="flex items-center gap-3"><span class="text-green-400">✓</span><span>No dependencies required</span></div>
-                <div class="flex items-center gap-3"><span class="text-green-400">✓</span><span>Ready to use immediately</span></div>
-                <div class="flex items-center gap-3"><span class="text-green-400">✓</span><span>Customizable code</span></div>
-            </div>
-            <p class="text-sm text-gray-400">Try a more specific query like "todo list" or "calculator" for a fully-featured app!</p>
-        </div>
-    </div>
-</body>
-</html>`;
-        }
-
     </script>
 </body>
 </html>
